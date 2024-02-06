@@ -4,12 +4,14 @@ class PlayList {
     private Track[] tracks;  // Array of tracks (Track objects)   
     private int maxSize;     // Maximum number of tracks in the array
     private int size;        // Actual number of tracks in the array
+    
 
     /** Constructs an empty play list with a maximum number of tracks. */ 
     public PlayList(int maxSize) {
         this.maxSize = maxSize;
         tracks = new Track[maxSize];
         size = 0;
+
     }
 
     /** Returns the maximum size of this play list. */ 
@@ -131,14 +133,20 @@ class PlayList {
 
     /** Removes the first track from this list. If the list is empty, does nothing. */
     public void removeFirst() {
-        remove(1);
+        remove(0);
     }
     
     /** Adds all the tracks in the other list to the end of this list. 
      *  If the total size of both lists is too large, does nothing. */
     //// An elegant and terribly inefficient implementation.
      public void add(PlayList other) {
-        //// replace this comment with your code
+        int s = size ;
+        size += other.getSize() ; 
+        for (int i = s+1 ; i < size ; i ++){
+            int j = 0 ;
+            tracks[i] = other.getTrack(j) ;
+            j++;
+    }
     }
 
     /** Returns the index in this list of the track that has the shortest duration,
@@ -147,9 +155,24 @@ class PlayList {
      *  minimum value (5) when starting the search from index 2.  
      *  If start is negative or greater than size - 1, returns -1.
      */
-    private int minIndex(int start) {
-        //// replace the following statement with your code
-        return 0;
+    public int minIndex(int start) {
+        int min = tracks[start].getDuration() ;
+        int check = 0 ;
+        int place = 0 ; 
+
+        if(start >= 0 && start < size ){
+           
+         for (int i = start ; i < size ; i++){
+         check = tracks[i].getDuration();
+         if (check < min ){
+         min = check ;
+         place = i ;
+        }
+    }
+        return place ;
+    }
+
+        return -1;
     }
 
     /** Returns the title of the shortest track in this list. 
@@ -163,8 +186,16 @@ class PlayList {
      *  rather than returning a new, sorted playlist, the method sorts
      *  the list on which it was called (this list). */
     public void sortedInPlace() {
-        // Uses the selection sort algorithm,  
-        // calling the minIndex method in each iteration.
-        //// replace this statement with your code
+        // Uses the selection sort algorithm,
+        Track[] temp = new Track[size] ;
+
+        for(int i = 0 ; i < size ; i++){
+            temp[i] = tracks[minIndex(i)] ;
+        }
+
+        for (int i = 0 ; i < size ; i++){
+            tracks[i] = temp[i];
+        }
     }
 }
+
