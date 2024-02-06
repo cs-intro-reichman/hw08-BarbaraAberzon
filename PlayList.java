@@ -162,7 +162,7 @@ class PlayList {
             int check = 0 ;
             int place = 0 ; 
 
-         for (int i = start ; i < size ; i++){
+         for (int i = start+1 ; i < size-start ; i++){
          check = tracks[i].getDuration();
          if (check < min ){
          min = check ;
