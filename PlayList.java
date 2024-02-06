@@ -71,7 +71,7 @@ class PlayList {
     public int totalDuration() {
         int totalSec = 0 ; 
         for (int i = 0 ; i < size ; i++ ){
-            totalSec += tracks[i].getDuration() ;
+            totalSec = totalSec + tracks[i].getDuration() ;
         }
         return totalSec;
     }
@@ -115,10 +115,10 @@ class PlayList {
     public void remove(int i) {
 
         if (size != 0 && i >= 0 && i < size ){
-            for (int j = i ; j < size ; j ++ ){
+            for (int j = i ; j < size-1 ; j ++ ){
                 tracks[j] = tracks[i+1] ; 
             }
-            tracks[size] = null ;
+            tracks[size-1] = null ;
             size -- ; 
         }
         
