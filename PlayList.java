@@ -96,6 +96,7 @@ class PlayList {
     public boolean add(int i, Track track) {
 
         if(i >=0 && size < maxSize ) {
+            size ++ ;
             for (int j = size ; j > i ; j -- ){
                 tracks[j] = tracks[j-1] ; 
             }
@@ -110,7 +111,7 @@ class PlayList {
      *  If the list is empty, or the given index is negative or too big for this list, 
      *  does nothing and returns -1. */
     public void remove(int i) {
-        
+
         if (size != 0 && i >= 0 && i <= size ){
             tracks[i] = null ;
             size -- ; 
@@ -125,12 +126,12 @@ class PlayList {
      *  If such a track is not found, or the list is empty, or the given index
      *  is negative or too big for this list, does nothing. */
     public void remove(String title) {
-        //// replace this comment with your code
+       remove(indexOf(title));
     }
 
     /** Removes the first track from this list. If the list is empty, does nothing. */
     public void removeFirst() {
-        //// replace this comment with your code
+        remove(1);
     }
     
     /** Adds all the tracks in the other list to the end of this list. 
