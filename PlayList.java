@@ -79,9 +79,9 @@ class PlayList {
     /** Returns the index of the track with the given title in this list.
      *  If such a track is not found, returns -1. */
     public int indexOf(String title) {
-
+        title = title.toLowerCase();
             for(int i = 0 ; i < size ; i ++){
-                if (tracks[i].getTitle().toLowerCase() == title.toLowerCase()){
+                if ((tracks[i].getTitle()).toLowerCase() == title){
                     return i ; 
                 }
             }
@@ -162,7 +162,7 @@ class PlayList {
             int check = 0 ;
             int place = 0 ; 
 
-         for (int i = start+1 ; i < size-start ; i++){
+         for (int i = start+1 ; i < size; i++){
          check = tracks[i].getDuration();
          if (check < min ){
          min = check ;
