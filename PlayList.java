@@ -141,7 +141,7 @@ class PlayList {
     //// An elegant and terribly inefficient implementation.
      public void add(PlayList other) {
         int s = size ;
-        size += other.getSize() ; 
+        size += other.size ; 
         for (int i = s+1 ; i < size ; i ++){
             int j = 0 ;
             tracks[i] = other.getTrack(j) ;
