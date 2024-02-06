@@ -172,7 +172,8 @@ class PlayList {
         return place ;
     }
 
-        return -1;
+    else{return -1;}
+        
     }
 
     /** Returns the title of the shortest track in this list. 
