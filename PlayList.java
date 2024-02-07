@@ -61,19 +61,21 @@ class PlayList {
 
     /** Removes the last track from this list. If the list is empty, does nothing. */
      public void removeLast() {
-        if(size != 0 ){
-            tracks[size] = null ;
-            size -- ;
+        if (size == 0 ){
+            return;
         }
+            tracks[size] = null ;
+            size = size -1 ;
+        
     }
     
     /** Returns the total duration (in seconds) of all the tracks in this list.*/
     public int totalDuration() {
-        int totalSec = 0 ; 
+        int totalDuration = 0 ; 
         for (int i = 0 ; i < size ; i++ ){
-            totalSec = totalSec + tracks[i].getDuration() ;
+            totalDuration = totalDuration + tracks[i].getDuration() ;
         }
-        return totalSec;
+        return totalDuration;
     }
 
     /** Returns the index of the track with the given title in this list.

@@ -66,9 +66,7 @@ class RuniFi {
         // Sorts the list 
         myList.sortedInPlace();
         display("My list after sorting by increasing duration", myList);
-
-        //Test minIndex
-        System.out.println("\nThe shortest track in my list is " + myList.minIndex(2));
+\
     }
 
     private static void display(String str, PlayList list) {
