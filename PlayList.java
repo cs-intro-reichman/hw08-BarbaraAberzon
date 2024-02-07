@@ -121,7 +121,7 @@ class PlayList {
                 tracks[j] = tracks[i+1] ; 
             }
             tracks[size-1] = null ;
-            size -- ; 
+            size = size - 1 ; 
         }
         
     }
@@ -187,14 +187,13 @@ class PlayList {
      *  the list on which it was called (this list). */
     public void sortedInPlace() {
         // Uses the selection sort algorithm,
-        Track[] temp = new Track[size] ;
+        int indexOfMin = 0;
+        for (int i = 0; i < size; i++) {
+            Track temp = tracks[i];
+            indexOfMin = minIndex(i);
+            tracks[i] = tracks[minIndex(i)];
+            tracks[indexOfMin] = temp;
 
-        for(int i = 0 ; i < size ; i++){
-            temp[i] = tracks[minIndex(i)] ;
-        }
-
-        for (int i = 0 ; i < size ; i++){
-            tracks[i] = temp[i];
         }
     }
 }
