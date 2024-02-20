@@ -28,7 +28,7 @@ class PlayList {
     public Track getTrack(int index) {
         if (index >= 0 && index < size) {
             return tracks[index];
-        } else {
+        } else { // redundant else
             return null;
         }
     }
@@ -43,7 +43,7 @@ class PlayList {
             return true; 
         }
 
-        else {
+        else {// redundant else
             return false ; 
         } 
     }
@@ -99,6 +99,9 @@ class PlayList {
      *  returns true. */
     public boolean add(int i, Track track) {
 
+        /* We usually dont like to put the entire code function inside an if
+        we go on negation, if not the condition then return false, otherwise the code of the function. 
+        */
         if(i >=0 && size < maxSize ) {
             for (int j = size ; j > i ; j -- ){
                 tracks[j] = tracks[j-1] ; 
@@ -115,7 +118,9 @@ class PlayList {
      *  If the list is empty, or the given index is negative or too big for this list, 
      *  does nothing and returns -1. */
     public void remove(int i) {
-
+        /* We usually dont like to put the entire code function inside an if
+        we go on negation, if not the condition then return false, otherwise the code of the function. 
+        */
         if (size != 0 && i >= 0 && i < size ){
             for (int j = i ; j < size-1 ; j ++ ){
                 tracks[j] = tracks[j+1] ; 
@@ -142,6 +147,7 @@ class PlayList {
      *  If the total size of both lists is too large, does nothing. */
     //// An elegant and terribly inefficient implementation.
      public void add(PlayList other) {
+         // same here
         if (size + other.size <= maxSize){
         int j = 0 ; 
         for (int i = size; i < size + other.size; i++) {
